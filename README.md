@@ -74,74 +74,85 @@ greetWithCleanCode();
 
 > Using let and const instead of var helps avoid issues with scope and hoisting.
 
-  // Bad
-  var count = 1;
+```javascript
+// Bad
+var count = 1;
 
-  // Good
-  let count = 1;
-  const MAX_COUNT = 10;
+// Good
+let count = 1;
+const MAX_COUNT = 10;
+```
 
 #### Scope
 
 > Understanding variable scope is essential for writing predictable and bug-free code.
 
-  function example() {
+```javascript
+function example() {
   let localVariable = 'I am local';
   if (true) {
-  let blockScoped = 'I am block scoped';
-  console.log(blockScoped); // Output: I am block scoped
+    let blockScoped = 'I am block scoped';
+    console.log(blockScoped); // Output: I am block scoped
   }
   console.log(localVariable); // Output: I am local
   // console.log(blockScoped); // Error: blockScoped is not defined
-  }
+}
 
-  example();
+example();
+```
 
 #### Global Scope
 
 > Minimize the use of global variables to avoid conflicts and unexpected behavior.
 
-  // Bad: Global variable
-  var globalCount = 0;
+```javascript
+// Bad: Global variable
+var globalCount = 0;
 
-  // Good: Encapsulated variable
-  function incrementCount() {
+// Good: Encapsulated variable
+function incrementCount() {
   let count = 0;
   count++;
   return count;
-  }
+}
 
-  incrementCount(); // 1
-  incrementCount(); // 1 (no conflict with previous call)
+incrementCount(); // 1
+incrementCount(); // 1 (no conflict with previous call)
+```
 
 #### Temporary Variables
 
 > Use descriptive names for temporary variables and avoid unnecessary ones.
 
-  // Bad: Global variable
-  var globalCount = 0;
+```javascript
+// Bad: Global variable
+var globalCount = 0;
 
-  // Good: Encapsulated variable
-  function incrementCount() {
-      let count = 0;
-      count++;
-      return count;
-  }
+// Good: Encapsulated variable
+function incrementCount() {
+  let count = 0;
+  count++;
+  return count;
+}
 
-  incrementCount(); // 1
-  incrementCount(); // 1 (no conflict with previous call)
+incrementCount(); // 1
+incrementCount(); // 1 (no conflict with previous call)
+```
 
 #### Hoisting
+
 > Hoisting is JavaScript’s behavior of moving declarations to the top of their scope. Understanding hoisting helps prevent bugs.
 
-  // Bad
-  console.log(hoistedVar); // Output: undefined
-  var hoistedVar = 'This is hoisted';
+```javascript
+// Bad
+console.log(hoistedVar); // Output: undefined
+var hoistedVar = 'This is hoisted';
 
-  // Good
-  let notHoistedVar;
-  console.log(notHoistedVar); // Output: undefined
-  notHoistedVar = 'This is not hoisted';
+// Good
+let notHoistedVar;
+console.log(notHoistedVar); // Output: undefined
+notHoistedVar = 'This is not hoisted';
+```
 
 ---
 
