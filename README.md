@@ -28,6 +28,7 @@ cleancode-javascript-udemy
 
 > A monkey patch is a way for a program to extend or modify supporting system software locally (affecting only the running instance of the program)
 
+```javascript
 Monkey Patching Example
 // Original function in a library
 function greet() {
@@ -41,18 +42,20 @@ console.log('Hello, clean code!');
 
 // Calling the patched function
 greet(); // Output: Hello, clean code!
+```
 
 > Clean Code Alternative: Instead of monkey patching, create a new function or use inheritance to extend functionality. This maintains the original behavior and adds new features in a clean way.
 
+```javascript
 // Original function in a library
 function greet() {
-console.log('Hello, world!');
+  console.log('Hello, world!');
 }
 
 // Extending functionality without monkey patching
 function greetWithCleanCode() {
-greet();
-console.log('Hello, clean code!');
+  greet();
+  console.log('Hello, clean code!');
 }
 
 // Calling the new function
@@ -60,6 +63,7 @@ greetWithCleanCode();
 // Output:
 // Hello, world!
 // Hello, clean code!
+```
 
 #### What are the anti-patterns?
 
