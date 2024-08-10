@@ -160,4 +160,8 @@ notHoistedVar = 'This is not hoisted';
 
 ---
 
-##
+## Type
+
+### Type Check
+
+> Dynamic Type...
