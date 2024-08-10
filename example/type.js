@@ -1,3 +1,4 @@
+/** Type */
 function myF(x, y) {
   this.x = x;
   this.y = y;
@@ -16,7 +17,6 @@ console.log(typeof MyC);
 console.log(typeof str);
 console.log(typeof null); // object... bug
 
-// 동적으로 변하는 언어이기 때문에 타입도 동적이다.
 const f = new myF(1, 3);
 const p = {
   x: 3,
@@ -30,3 +30,33 @@ console.log(myF instanceof Object);
 console.log([1, 2, 3] instanceof Array);
 
 console.log(Object.prototype.toString.call(new String('hello')));
+
+/** Undefined & NULL */
+
+console.log(!null);
+console.log(!!null);
+console.log(null === false);
+console.log(!null === true);
+
+let varb = null;
+let vara = null;
+console.log(typeof vara);
+console.log(typeof varb);
+console.log(!undefined);
+console.log(undefined == null);
+console.log(undefined === null);
+console.log(!undefined === !null);
+
+/** Reduce eqeq */
+console.log('1' == 1);
+console.log('1' === 1);
+
+/** Type Casting */
+console.log(11 + 'string');
+console.log(String(11 + 'string'));
+console.log(!!'string');
+console.log(Boolean(!!'string'));
+console.log(!!'');
+console.log(Boolean(!!''));
+console.log(parseInt('9.999999', 10));
+console.log(Number(parseInt('9.999999', 10)));
