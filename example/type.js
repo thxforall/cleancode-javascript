@@ -60,3 +60,9 @@ console.log(!!'');
 console.log(Boolean(!!''));
 console.log(parseInt('9.999999', 10));
 console.log(Number(parseInt('9.999999', 10)));
+
+/** isNaN */
+// console.log(Number.MAX_SAFE_INTEGER);
+// console.log(Number.isIeger);
+console.log(isNaN(123 + 'test'));
+console.log(Number.isNaN(123 + 'test'));

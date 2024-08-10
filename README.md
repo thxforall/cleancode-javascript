@@ -9,5 +9,6 @@
 1. [What is JavaScript?](/whatisjavascript.md)
 2. [Variables](/variables.md)
 3. [Types](/type.md)
+4. [Boundary](/boundary.md)
 
 ---

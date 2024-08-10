@@ -207,3 +207,43 @@ console.log(boolEmptyStr); // Output: false
 let boolNonEmptyStr = Boolean(nonEmptyStr); // Non-empty string is truthy
 console.log(boolNonEmptyStr); // Output: true
 ```
+
+#### isNaN
+
+> In JavaScript, isNaN and Number.isNaN are used to check if a value is “Not-a-Number” (NaN). However, they behave differently, and understanding their differences is important for writing accurate code.
+
+> The isNaN() function checks whether a value is NaN or can be coerced to NaN. If the value is not a number or cannot be converted to a number, it returns true.
+
+```javascript
+console.log(isNaN(NaN)); // Output: true (NaN is NaN)
+console.log(isNaN('hello')); // Output: true ('hello' cannot be converted to a number, so it becomes NaN)
+console.log(isNaN('123')); // Output: false ('123' is a valid number string)
+console.log(isNaN(123)); // Output: false (123 is a number)
+console.log(isNaN(true)); // Output: false (true is coerced to 1, which is a number)
+console.log(isNaN(false)); // Output: false (false is coerced to 0, which is a number)
+console.log(isNaN(undefined)); // Output: true (undefined becomes NaN when coerced to a number)
+console.log(isNaN(null)); // Output: false (null is coerced to 0, which is a number)
+```
+
+> The Number.isNaN() method is more precise and checks whether the value is strictly NaN without performing type coercion.
+
+```javascript
+console.log(Number.isNaN(NaN)); // Output: true (NaN is NaN)
+console.log(Number.isNaN('hello')); // Output: false ('hello' is a string, not NaN)
+console.log(Number.isNaN('123')); // Output: false ('123' is a string, not NaN)
+console.log(Number.isNaN(123)); // Output: false (123 is a number, not NaN)
+console.log(Number.isNaN(true)); // Output: false (true is not NaN)
+console.log(Number.isNaN(false)); // Output: false (false is not NaN)
+console.log(Number.isNaN(undefined)); // Output: false (undefined is not NaN)
+console.log(Number.isNaN(null)); // Output: false (null is not NaN)
+```
+
+> When dealing with '[floating-point numbers](/floatingnumber.md)' in JavaScript, you might encounter NaN in calculations, especially when performing operations that are undefined or invalid mathematically.
+
+```javascript
+let result = 0 / 0; // NaN (undefined operation)
+console.log(Number.isNaN(result)); // Output: true
+
+let sqrtResult = Math.sqrt(-1); // NaN (square root of a negative number is not a real number)
+console.log(Number.isNaN(sqrtResult)); // Output: true
+```
