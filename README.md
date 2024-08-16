@@ -6,9 +6,10 @@
 
 ## List
 
-1. [What is JavaScript?](/whatisjavascript.md)
-2. [Variables](/variables.md)
-3. [Types](/type.md)
-4. [Boundary](/boundary.md)
+1. [What is JavaScript?](/md/whatisjavascript.md)
+2. [Variables](/md/variables.md)
+3. [Types](/md/type.md)
+4. [Boundary](/md/boundary.md)
+5. [If](/md/if.md)
 
 ---

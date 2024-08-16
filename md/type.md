@@ -8,8 +8,8 @@
 2. [Dynamic Type](#dynamic-type)
 3. [Type Checking Methods](#type-checking-methods)
 4. [Undefined & NULL](#undefined--null)
-5. [Reduce eqeq]()
-6. []()
+5. [Reduce eqeq](#reduce-eqeq)
+6. [Type Casting](#type-casting)
 
 ---
 

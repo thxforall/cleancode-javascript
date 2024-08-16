@@ -182,5 +182,3 @@ const UserDashboard = () => {
   return <Dashboard />;
 };
 ```
-
-'
