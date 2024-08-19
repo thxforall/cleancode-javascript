@@ -84,8 +84,6 @@ return (
 
 #### Ternary operator
 
-### Ternary Operator: My Own Rules
-
 > The ternary operator is a concise way to perform conditional logic in JavaScript. It allows you to evaluate a condition and return one of two values based on the outcome. However, while it can make code shorter and more readable, it's important to use it judiciously to avoid overcomplicating your code. Here are some guidelines and considerations for using the ternary operator, along with a comparison to `switch/case` statements.
 
 1. **Basic Structure of Ternary Operator**
@@ -206,6 +204,8 @@ if (score > 90) {
 ```
 
 #### Truthy & Falsy
+
+> 
 
 #### Short-Circuit Evaluation
 
