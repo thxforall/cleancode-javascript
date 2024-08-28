@@ -205,9 +205,174 @@ if (score > 90) {
 
 #### Truthy & Falsy
 
-> 
+> In JavaScript, every value is either "truthy" or "falsy." Understanding these concepts is crucial for writing effective and bug-free code, especially when working with conditions and logical operators like `!` (logical NOT).
+
+1.  **Truthy Values**
+
+A "truthy" value is any value that is considered true when evaluated in a boolean context, even if it is not explicitly `true`. In JavaScript, most values are truthy.
+
+**Examples of Truthy Values:**
+
+- `true`
+- Non-zero numbers (e.g., `1`, `-42`, `3.14`)
+- Non-empty strings (e.g., `"hello"`, `"0"`)
+- Objects (e.g., `{}`, `[]`)
+- Functions (e.g., `function() {}`)
+
+**Usage:**
+
+```javascript
+if ('hello') {
+  console.log('This is truthy!');
+}
+// Output: "This is truthy!"
+```
+
+2.  **Falsy Values**
+
+A "falsy" value is any value that is considered false when evaluated in a boolean context. JavaScript has a small set of falsy values.
+
+**Examples of Falsy Values:**
+
+- `false`
+- `0` (the number zero)
+- `""` (empty string)
+- `null`
+- `undefined`
+- `NaN` (Not-a-Number)
+
+**Usage:**
+
+```javascript
+if (!0) {
+  console.log('This is falsy!');
+}
+// Output: "This is falsy!"
+```
+
+3.  **Logical NOT Operator (`!`)**
+
+The `!` (logical NOT) operator is used to invert the truthiness or falsiness of a value. It turns truthy values into `false` and falsy values into `true`.
+
+**Examples:**
+
+```javascript
+console.log(!true); // Output: false
+console.log(!false); // Output: true
+
+console.log(!1); // Output: false (1 is truthy)
+console.log(!0); // Output: true (0 is falsy)
+
+console.log(!'hello'); // Output: false (non-empty string is truthy)
+console.log(!''); // Output: true (empty string is falsy)
+```
+
+4.  **Double NOT Operator (`!!`)**
+
+Using `!!` (double NOT) is a common pattern in JavaScript to explicitly convert a value to its boolean equivalent. The first `!` converts the value to a boolean and inverts it, and the second `!` inverts it back to the original truthy or falsy value in boolean form.
+
+**Examples:**
+
+```javascript
+console.log(!!1); // Output: true (1 is truthy)
+console.log(!!0); // Output: false (0 is falsy)
+
+console.log(!!'hello'); // Output: true (non-empty string is truthy)
+console.log(!!''); // Output: false (empty string is falsy)
+```
+
+**Summary**
+
+- **Truthy:** Values that evaluate to `true` in a boolean context. Most values in JavaScript are truthy, except the small set of falsy values.
+- **Falsy:** Values that evaluate to `false` in a boolean context. These include `false`, `0`, `""`, `null`, `undefined`, and `NaN`.
+- **`!` Operator:** Inverts the truthiness or falsiness of a value.
+- **`!!` Operator:** Converts a value to its boolean equivalent, making it explicitly `true` or `false`.
 
 #### Short-Circuit Evaluation
+
+> Short-circuit evaluation is a technique used by logical operators in JavaScript, where the second operand is only evaluated if necessary. This is crucial for optimizing performance and avoiding unnecessary computations. The two primary operators that utilize short-circuit evaluation are `&&` (AND) and `||` (OR). Understanding how these operators work, along with their precedence and order of evaluation, is important for writing efficient and correct code.
+
+1.  **AND Operator (`&&`)**
+
+The `&&` operator evaluates to `true` if both operands are truthy. If the first operand is falsy, the entire expression short-circuits and returns the first falsy value without evaluating the second operand.
+
+**Examples:**
+
+```javascript
+console.log(false && true); // Output: false (short-circuits at false)
+console.log(true && false); // Output: false (evaluates both operands)
+console.log(true && 'hello'); // Output: "hello" (evaluates both operands)
+console.log(null && 'world'); // Output: null (short-circuits at null)
+```
+
+**Usage in Code:**
+
+```javascript
+// Checking if an object and its property exist
+const user = null;
+console.log(user && user.name); // Output: null (short-circuits at null)
+```
+
+2.  **OR Operator (`||`)**
+
+The `||` operator evaluates to `true` if at least one of the operands is truthy. If the first operand is truthy, the entire expression short-circuits and returns the first truthy value without evaluating the second operand.
+
+**Examples:**
+
+```javascript
+console.log(true || false); // Output: true (short-circuits at true)
+console.log(false || true); // Output: true (evaluates both operands)
+console.log('hello' || false); // Output: "hello" (short-circuits at "hello")
+console.log(null || 'world'); // Output: "world" (evaluates both operands)
+```
+
+**Usage in Code:**
+
+```javascript
+// Providing a default value
+const name = null || 'Guest';
+console.log(name); // Output: "Guest"
+```
+
+3.  **Precedence and Order of Evaluation**
+
+Operator precedence determines the order in which operators are evaluated in expressions that contain multiple operators. In JavaScript:
+
+- The `&&` operator has higher precedence than the `||` operator.
+- Operators with higher precedence are evaluated before those with lower precedence.
+
+**Example of Precedence:**
+
+```javascript
+const result = false || (true && false);
+console.log(result); // Output: false
+
+// This is evaluated as: false || (true && false)
+// The && is evaluated first, resulting in false
+// Then, false || false is evaluated, resulting in false
+```
+
+4.  **Order of Evaluation**
+
+Even though precedence determines which operation is performed first, JavaScript still evaluates expressions from left to right within the same level of precedence. This order is crucial for understanding how short-circuit evaluation works.
+
+**Example of Order:**
+
+```javascript
+const a = true || (false && console.log('This will not run'));
+const b = false && (true || console.log('This will not run'));
+```
+
+- In the first expression, `true ||` short-circuits, so the rest of the expression isn’t evaluated.
+- In the second expression, `false &&` short-circuits, so the `console.log` doesn’t run.
+
+**Summary**
+
+- **Short-Circuit Evaluation:** A technique where the second operand is evaluated only if necessary.
+  - **`&&` (AND Operator):** Returns the first falsy value or the last truthy value if all are truthy.
+  - **`||` (OR Operator):** Returns the first truthy value or the last falsy value if all are falsy.
+- **Precedence:** The `&&` operator has higher precedence than the `||` operator.
+- **Order of Evaluation:** Expressions are evaluated from left to right, and short-circuiting can stop further evaluation.
 
 #### Else If
 
